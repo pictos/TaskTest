@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskTest.Views.InicioPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+           
+            <ActivityIndicator IsEnabled   ="{Binding IsBusy}"
+                               IsRunning   ="{Binding IsBusy}"
+                               IsVisible   ="{Binding IsBusy}"
+                               Grid.Row    ="1"
+                               Grid.Column ="1"/>
+
+            <Button Text    ="Carregar Infos"
+                    Command ="{Binding CarregarCommand}"/>
+            
+            <Label Text        ="{Binding Tempo, StringFormat=' {0:N}ms'}"
+                   FontSize    ="Large"
+                   Grid.Column ="1"/>
+            
+            <ListView ItemsSource ="{Binding Palestras}"
+                      Grid.Row    ="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding TituloPalestra}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView ItemsSource ="{Binding Palestrantes}"
+                      Grid.Row    ="1"
+                      Grid.Column ="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding NomePalestrante}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
