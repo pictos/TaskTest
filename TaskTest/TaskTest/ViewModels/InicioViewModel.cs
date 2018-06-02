@@ -89,7 +89,6 @@ namespace TaskTest.ViewModels
                     timer.Stop();
 
                     Tempo = timer.ElapsedMilliseconds.ToString();
-
                 }
                 catch (Exception ex)
                 {
